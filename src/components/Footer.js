@@ -70,5 +70,5 @@ const Footer = () => {
     </footer>
   );
 };
-
+//add comment
 export default Footer;
