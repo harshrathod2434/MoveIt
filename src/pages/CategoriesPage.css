@@ -1,0 +1,21 @@
+/* src/pages/CategoriesPage.css */
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card-title {
+    font-weight: 600;
+    color: #0d6efd;
+  }
+  
+  .card {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  

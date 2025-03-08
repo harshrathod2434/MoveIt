@@ -1,0 +1,355 @@
+/* --- WhyUsSection.js --- */
+
+// src/components/WhyUsSection.js
+import React from 'react';
+import { Container, Row, Col, Card } from 'react-bootstrap';
+import './WhyUsSection.css'; // Import the CSS file for animations
+
+const WhyUsSection = () => {
+  const cards = [
+    {
+      id: 1,
+      icon: '💼',
+      title: 'Professional',
+      text: 'Our team of professional movers are trained to prioritize efficiency, organization, and attention to detail.'
+    },
+    {
+      id: 2,
+      icon: '🚚',
+      title: 'Countrywide',
+      text: 'We offer a range of services to suit your individual needs, whether you’re moving locally or across the country.'
+    },
+    {
+      id: 3,
+      icon: '💖',
+      title: 'Personal Touch',
+      text: 'We believe that moving should be an exciting and positive experience, not a stressful one.'
+    }
+  ];
+
+  return (
+    <Container className="my-5">
+      <h2 className="text-center mb-4">Why Move With Us?</h2>
+      <Row className="g-4">
+        {cards.map(card => (
+          <Col md={4} key={card.id}>
+            <Card className="why-us-card">
+              <Card.Body>
+                <div className="icon mb-3">{card.icon}</div>
+                <Card.Title>{card.title}</Card.Title>
+                <Card.Text>{card.text}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
+};
+
+export default WhyUsSection;
+
+
+/* --- AboutUsSection.js --- */
+
+import React from 'react';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
+import './AboutUsSection.css';
+
+const AboutUsSection = () => {
+  const navigate = useNavigate();  // Initialize useNavigate
+
+  return (
+    <Container className="about-us-container my-5">
+      <Row className="g-4 d-flex align-items-stretch">
+        <Col md={6} className="d-flex">
+          <Card className="about-card flex-fill">
+            <Row className="g-0">
+              <Col md={5}>
+                <img
+                  src="/images/about.jpg"
+                  alt="About Us"
+                  className="img-fluid rounded-start"
+                />
+              </Col>
+              <Col md={7}>
+                <Card.Body>
+                  <h2 className="text-center mb-4">ABOUT US</h2> 
+                  <p>
+                    Welcome to <strong>Move It</strong> — your trusted partner for seamless relocations! 
+                    We ensure a stress-free and efficient moving experience.
+                  </p>
+                  <p>
+                    Our professional team handles everything from packing to unpacking with utmost care, 
+                    so you can settle into your new space effortlessly.
+                  </p>
+                  <p className="text-muted">
+                    <em>"Moving made simple, with care and precision — that's our promise to you."</em>
+                  </p>
+                  <Button
+                    variant="primary"
+                    onClick={() => navigate('/about-us')}  // Redirect to About Us page
+                  >
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        
+        <Col md={6} className="d-flex">
+          <Card className="enquire-card flex-fill">
+            <Card.Body className="text-center d-flex flex-column justify-content-center">
+              <h4 className="text-primary">ENQUIRE NOW</h4>
+              <p className="mb-4">
+                "Planning your next move? Get a free quote today and experience a hassle-free relocation with us! 🚚📦"
+              </p>
+              <ul className="list-unstyled mb-4">
+                <li>✔️ Affordable and Transparent Pricing</li>
+                <li>✔️ Safe and Secure Packing</li>
+                <li>✔️ Timely Delivery Guaranteed</li>
+              </ul>
+              <div className="d-flex justify-content-center gap-3">
+                <Button variant="primary">Get a Quote</Button>
+                <Button
+                  variant="outline-primary"
+                  onClick={() => navigate('/contact-us')}  // Redirect to Contact Us page
+                >
+                  Contact Us
+                </Button>
+              </div>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
+  );
+};
+
+export default AboutUsSection;
+
+
+/* --- PartnerCarousel.js --- */
+
+// src/components/PartnerCarousel.js
+import React from 'react';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
+const PartnerCarousel = () => {
+  // Updated to use your actual logo files
+  const partners = [
+    { id: 1, logo: '/logo/A1.jpg' },
+    { id: 2, logo: '/logo/A2.png' },
+    { id: 3, logo: '/logo/A3.jpg' },
+    { id: 4, logo: '/logo/A4.jpg' },
+    { id: 5, logo: '/logo/A5.jpg' },
+    { id: 6, logo: '/logo/A6.png' },
+    { id: 7, logo: '/logo/A7.jpg' },
+    { id: 8, logo: '/logo/A8.jpg' },
+  ];
+
+  const responsive = {
+    superLargeDesktop: { breakpoint: { max: 4000, min: 1024 }, items: 5 },
+    desktop: { breakpoint: { max: 1024, min: 768 }, items: 4 },
+    tablet: { breakpoint: { max: 768, min: 464 }, items: 3 },
+    mobile: { breakpoint: { max: 464, min: 0 }, items: 2 },
+  };
+
+  return (
+    <div className="my-5">
+      <h2 className="text-center mb-4">Our Partners</h2>
+      <Carousel responsive={responsive} infinite autoPlay autoPlaySpeed={3000}>
+        {partners.map((partner) => (
+          <div key={partner.id} className="p-2">
+            <img
+              src={partner.logo}
+              alt={`Partner ${partner.id}`}
+              className="img-fluid"
+              style={{ maxWidth: '150px', margin: '0 auto', borderRadius: '8px' }}
+            />
+          </div>
+        ))}
+      </Carousel>
+    </div>
+  );
+};
+
+export default PartnerCarousel;
+
+
+/* --- ImageCarousel.js --- */
+
+// src/components/ImageCarousel.js
+import React from 'react';
+import { Carousel } from 'react-bootstrap';
+
+const ImageCarousel = () => {
+  return (
+    <Carousel>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="/images/2.png"
+          alt="Slide 1"
+          style={{ objectFit: 'cover', height: '500px' }}  // Adjust height as needed
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="/images/3.png"
+          alt="Slide 2"
+          style={{ objectFit: 'cover', height: '500px' }}  // Adjust height as needed
+        />
+      </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="/images/4.png"
+          alt="Slide 3"
+          style={{ objectFit: 'cover', height: '500px' }}  // Adjust height as needed
+        />
+      </Carousel.Item>
+    </Carousel>
+  );
+};
+
+export default ImageCarousel;
+
+
+/* --- CustomNavbar.js --- */
+
+// src/components/CustomNavbar.js
+import './CustomNavbar.css';
+
+import React from 'react';
+import { Navbar, Nav, Container, Form, FormControl, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
+const CustomNavbar = () => {
+  return (
+    <Navbar bg="dark" variant="dark" expand="lg" className="py-2 shadow-sm">
+      <Container>
+        <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
+          <img
+            src="/logo/move_logo.png"
+            alt="Logo"
+            width="40"
+            height="40"
+            className="d-inline-block align-top me-2"
+          />
+          <span className="navbar-text text-white fw-bold">Move It</span>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/">Home</Nav.Link>
+            <Nav.Link as={Link} to="/categories">Categories</Nav.Link>
+            <Nav.Link as={Link} to="/about-us">About Us</Nav.Link>
+            <Nav.Link as={Link} to="/contact-us">Contact Us</Nav.Link>
+          </Nav>
+        
+          
+          <input
+            type="text"
+            placeholder="Search"
+            className="custom-search-bar"
+          />
+          <Button variant="outline-light" style={{ marginLeft: '10px' }}>Search</Button>
+          
+
+
+
+
+
+
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default CustomNavbar;
+
+
+/* --- Footer.js --- */
+
+// src/components/Footer.js
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaArrowUp } from 'react-icons/fa';
+import './Footer.css';
+
+const Footer = () => {
+  // Scroll to top function
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  return (
+    <footer className="footer bg-dark text-white pt-4 pb-3">
+      <Container>
+        <Row className="align-items-center text-center">
+          
+          {/* Quick Links in One Line - Centered */}
+          <Col md={6} className="mb-3">
+            <h5 className="text-uppercase mb-3">Quick Links</h5>
+            <ul className="list-inline mb-0">
+              <li className="list-inline-item mx-3">
+                <Link to="/" className="text-white text-decoration-none">Home</Link>
+              </li>
+              <li className="list-inline-item mx-3">
+                <Link to="/about-us" className="text-white text-decoration-none">About Us</Link>
+              </li>
+              <li className="list-inline-item mx-3">
+                <Link to="/categories" className="text-white text-decoration-none">Categories</Link>
+              </li>
+              <li className="list-inline-item mx-3">
+                <Link to="/contact-us" className="text-white text-decoration-none">Contact Us</Link>
+              </li>
+            </ul>
+          </Col>
+
+          {/* Follow Us Section Aligned and Centered */}
+          <Col md={6} className="text-center">
+            <h5 className="text-uppercase mb-3">Follow Us</h5>
+            <div className="d-flex justify-content-center gap-4">
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white">
+                <FaFacebook size={28} />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white">
+                <FaTwitter size={28} />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white">
+                <FaInstagram size={28} />
+              </a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white">
+                <FaLinkedin size={28} />
+              </a>
+            </div>
+          </Col>
+        </Row>
+
+        <hr className="bg-white my-3" />
+
+        {/* Copyright and Back to Top */}
+        <Row className="text-center">
+          <Col>
+            <p className="mb-0">&copy; {new Date().getFullYear()} Move It. All rights reserved.</p>
+            <button className="btn btn-outline-light btn-sm mt-2" onClick={scrollToTop}>
+              <FaArrowUp /> Back to Top
+            </button>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  );
+};
+
+export default Footer;
+
+

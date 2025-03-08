@@ -1,0 +1,50 @@
+/* src/pages/AboutUsPage.css */
+
+/* Team Member Image Styles */
+.team-img {
+  width: 300px;               /* Increased size by 20% */
+  height: 300px;              /* Increased size by 20% */
+  border-radius: 50%;         /* Make images circular */
+  object-fit: cover;          /* Prevent stretching */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.team-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member h6 {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.team-member p {
+  color: #6b7280;
+}
+
+/* Core Value Cards Style */
+.core-value-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.core-value-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Larger text for About Us section */
+.about-us-text {
+  font-size: 20px;        /* Increased size for readability */
+  line-height: 1.8;       /* Better line spacing */
+  color: #333;            /* Darker text for contrast */
+}
+
