@@ -62,7 +62,7 @@ const Footer = () => {
           <Col>
             <p className="mb-0">&copy; {new Date().getFullYear()} Move It. All rights reserved.</p>
             <button className="btn btn-outline-light btn-sm mt-2" onClick={scrollToTop}>
-              <FaArrowUp /> Back to Top
+              <FaArrowUp /> Back to Toppp
             </button>
           </Col>
         </Row>
